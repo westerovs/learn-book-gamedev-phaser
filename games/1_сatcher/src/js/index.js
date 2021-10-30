@@ -33,8 +33,11 @@ class Game {
     this.game.physics.enable(this.catcher, Phaser.Physics.ARCADE)
 
     // cat
-    this.cat = this.game.add.sprite(Math.random() * this.game.width,
-      Math.random() * this.game.height, 'cat')
+    this.cat = this.game.add.sprite(
+      Math.random() * this.game.width,  // x
+      Math.random() * this.game.height, // y
+      'cat'
+    )
     this.cat.scale.set(3)
     this.game.physics.enable(this.cat, Phaser.Physics.ARCADE)
     
@@ -88,9 +91,13 @@ class Game {
     }
   }
   
-  catHitHandler = (catcherObject, catObject) => {
-    catObject.x = Math.random() * this.game.width
-    catObject.y = Math.random() * this.game.height
+  catHitHandler = (catcher, cat) => {
+    // важно ! не смотря на то, что мы явно не используем catcher
+    // его необходимо указывать, для правильной работы коллизии
+    // Все обработчики столкновений в Phaser принимают два
+    // аргумента, которые будут ссылками на объекты, которые сталкиваются друг с другом.
+    cat.x = Math.random() * this.game.width
+    cat.y = Math.random() * this.game.height
     this.score ++
     this.txtScore.setText( this.score.toString())
   }
