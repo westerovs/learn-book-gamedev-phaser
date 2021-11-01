@@ -9,7 +9,7 @@ class test {
     this.test = null
   }
 
-  xxx = () => {
+  xxx() {
     console.log(1)
   }
 }

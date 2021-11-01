@@ -1,0 +1,95 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "airbnb/base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": false,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": ["i18n.js"],
+      "rules": {
+        "quote-props": 0,
+        "global-require": 0,
+        "key-spacing": 0,
+        "no-undef": 0
+      }
+    }, {
+      "files": ["webpack.*.js", "sprite.js", "audio.js"],
+      "env": {
+        "browser": false,
+        "node": true,
+        "es6": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "import/no-dynamic-require": 0,
+        "global-require": 0
+      }
+    }
+  ],
+  "rules": {
+    "semi": ["error", "never"],
+    "camelcase": ["error", {
+      "properties": "never",
+      "ignoreDestructuring": false,
+      "allow": ["__webpack_hash__"]
+    }],
+    "linebreak-style": 0,
+    "no-multi-spaces": ["error", {
+      "exceptions": {
+        "VariableDeclarator": true,
+        "ImportDeclaration": true
+      }
+    }],
+    "key-spacing": ["error", {
+      "align": "colon"
+    }],
+    "max-len": ["error", {
+      "code": 180
+    }],
+    "no-param-reassign": ["warn", {
+      "props": true,
+      "ignorePropertyModificationsFor": ["acc", "accumulator", "e", "ctx", "context", "req", "request", "res", "response", "$scope", "staticContext"]
+    }],
+    "class-methods-use-this": ["error", {
+      "exceptMethods": ["init"]
+    }],
+    "object-curly-spacing": ["error", "never"],
+    "operator-linebreak": ["error", "after"],
+    "no-multi-assign": "error",
+    "no-unused-vars": "error",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-prototype-builtins": 1,
+    "global-require": 1,
+    "no-nested-ternary": 0
+  },
+  "globals": {
+    "Phaser": false,
+    "require": false,
+    "__": false,
+    "__DEV__": false,
+    "__LOCALE__": false,
+    "__AD_PLATFORM__": false,
+    "__webpack_hash__": false,
+    "__GAME__": false,
+    "__GAMECONCEPT__": false
+  },
+  "settings": {
+    "import/core-modules": [ "phaser", "pixi", "p2" ],
+    "import/resolver": {
+      "alias": [
+        ["Assets", "./assets"],
+        ["Lib", "./lib"]
+      ]
+    }
+  }
+}
