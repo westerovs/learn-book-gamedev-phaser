@@ -1,7 +1,15 @@
 /* eslint-disable */
 
-import {getRandomNumber} from './task.js';
-import {view} from './view/view.js';
+import {getRandomNumber} from './utils/utils.js';
 
 console.log(getRandomNumber(0, 2077))
-view()
+
+class test {
+  constructor() {
+    this.test = null
+  }
+
+  xxx = () => {
+    console.log(1)
+  }
+}
